@@ -49,27 +49,92 @@ public class Square implements GLEventListener {
     public void display(GLAutoDrawable gLDrawable) {
         final GL2 gl = gLDrawable.getGL().getGL2();
 
-        // Remove last render :
-        gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+        // Remove last render : il se fait continuellement
+        gl.glClear(GL.GL_COLOR_BUFFER_BIT);// il efface l'ancienne image 
         gl.glClear(GL.GL_DEPTH_BUFFER_BIT);
-        gl.glLoadIdentity();
+        gl.glLoadIdentity(); // matrice identité 
 
         // Apply a translation to the current position :
         gl.glTranslatef(0.0f, 0.0f, -5.0f);
 
         // Apply a rotation to the current position :
-        gl.glRotatef(rotate, 1.0f, 0.0f, 0.0f);
+        /*gl.glRotatef(rotate, 1.0f, 0.0f, 0.0f);
         gl.glRotatef(rotate, 0.0f, 1.0f, 0.0f);
-        gl.glRotatef(rotate, 0.0f, 0.0f, 1.0f);
+        gl.glRotatef(rotate, 0.0f, 0.0f, 1.0f);*/
 
-        // Draw a square :
+        /* Draw a square :
         gl.glBegin(GL2.GL_QUADS);
-        gl.glColor3f(0.0f, 1.0f, 1.0f); // Set the color for the next drawing
+        gl.glColor3f(0.5f, 1.0f, 1.0f); // Set the color for the next drawing
         gl.glVertex3f(-1.0f, 1.0f, 0.0f); // Set a point at top left
         gl.glVertex3f(1.0f, 1.0f, 0.0f); // Set a point at top right
         gl.glVertex3f(1.0f, -1.0f, 0.0f); // Set a point at bottom right
         gl.glVertex3f(-1.0f, -1.0f, 0.0f); // Set a point at bottom left
+        gl.glEnd();*/
+
+
+        //Draw a triangle :
+        gl.glRotatef(rotate, 1.0f, 0.0f, 0.0f);
+        gl.glRotatef(rotate, 0.0f, 1.0f, 0.0f);
+        gl.glRotatef(rotate, 1.0f, 0.0f, 0.0f);
+       
+        gl.glBegin(GL2.GL_TRIANGLES);
+        
+        gl.glColor3f(1f,0f,0f); // Set the color for the next drawing
+       
+        gl.glVertex3f(-1.0f, 1.0f, 0.0f); // Set a point at top left
+        gl.glColor3f(0f,1f,0f);
+        gl.glVertex3f(1.0f, 1.0f, 0.0f); // Set a point at top right
+        gl.glColor3f(0f,0f,1f);
+        gl.glVertex3f(1.0f,0.0f, 0.0f); // Set a point at bottom right
+        
         gl.glEnd();
+
+    
+
+        //  Draw a cube :
+        
+      /* gl.glRotatef(rotate, 1.0f, 1.0f, 1.0f); 
+ 
+      
+      gl.glBegin(GL2.GL_QUADS); 
+      gl.glColor3f(1f,0f,0f); //red color
+      gl.glVertex3f(1.0f, 1.0f, -1.0f); //Set a point at top left
+      gl.glVertex3f( -1.0f, 1.0f, -1.0f); // Set a point at top right
+      gl.glVertex3f( -1.0f, 1.0f, 1.0f ); // Set a point at bottom left
+      gl.glVertex3f( 1.0f, 1.0f, 1.0f ); // Set a point at bottom right
+		
+      gl.glColor3f( 0f,1f,0f ); //green color
+      gl.glVertex3f( 1.0f, -1.0f, 1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, 1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, -1.0f ); 
+      gl.glVertex3f( 1.0f, -1.0f, -1.0f ); 
+      gl.glColor3f( 0f,0f,1f ); //blue color
+      gl.glVertex3f( 1.0f, 1.0f, 1.0f ); 
+      gl.glVertex3f( -1.0f, 1.0f, 1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, 1.0f ); 
+      gl.glVertex3f( 1.0f, -1.0f, 1.0f ); 
+
+      gl.glColor3f( 1f,1f,0f ); //yellow
+      gl.glVertex3f( 1.0f, -1.0f, -1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, -1.0f ); 
+      gl.glVertex3f( -1.0f, 1.0f, -1.0f ); 
+      gl.glVertex3f( 1.0f, 1.0f, -1.0f ); 
+
+      gl.glColor3f( 1f,0f,1f ); //purple 
+      gl.glVertex3f( -1.0f, 1.0f, 1.0f ); 
+      gl.glVertex3f( -1.0f, 1.0f, -1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, -1.0f ); 
+      gl.glVertex3f( -1.0f, -1.0f, 1.0f ); 
+
+      gl.glColor3f( 0f,1f, 1f ); 
+      gl.glVertex3f( 1.0f, 1.0f, -1.0f ); 
+      gl.glVertex3f( 1.0f, 1.0f, 1.0f ); 
+      gl.glVertex3f( 1.0f, -1.0f, 1.0f ); 
+      gl.glVertex3f( 1.0f, -1.0f, -1.0f );
+      gl.glEnd(); // Done Drawing The Quad
+      gl.glFlush();*/
+		
+     
 
         // Increase rotation :
         rotate += 0.2f;
